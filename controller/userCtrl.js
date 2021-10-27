@@ -1,9 +1,20 @@
+const Users = require("../models/userModel");
+
 const useCtrl = {
   registerUser: (req, res) => {
-    res.json({ msg: "Sign up Success" });
+    try {
+      res.json(req.body);
+      res.json({ msg: "Sign up Success" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
   },
   loginUser: (req, res) => {
-    res.json({ msg: "Login a User" });
+    try {
+      res.json({ msg: "Login a User" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
   },
 };
 
